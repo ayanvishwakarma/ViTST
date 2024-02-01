@@ -257,9 +257,9 @@ def construct_image(
     ):
     
     # load data
-    Pdict_list = np.load(f'../processed_data/PTdict_list.npy', allow_pickle=True)
-    arr_outcomes = np.load(f'../processed_data/arr_outcomes.npy', allow_pickle=True)
-    ts_params = np.load(f'../processed_data/ts_params.npy', allow_pickle=True)
+    Pdict_list = np.load(f'/kaggle/input/vitst-data/processed_data_P12/processed_data/PTdict_list.npy', allow_pickle=True)
+    arr_outcomes = np.load(f'/kaggle/input/vitst-data/processed_data_P12/processed_data/arr_outcomes.npy', allow_pickle=True)
+    ts_params = np.load(f'/kaggle/input/vitst-data/processed_data_P12/processed_data/ts_params.npy', allow_pickle=True)
     
     num_samples = len(Pdict_list)
     print(f"{num_samples} patients in total!") 
@@ -299,13 +299,13 @@ def construct_image(
     with open('../processed_data/param_color_mapping.json', 'w') as f:
         json.dump(ts_color_mapping, f)
     
-    for split_idx in range(5):
+    for split_idx in range(1):
         # start constructing the data list
         ImageDict_list = []
         demogr_lengths = []
 
-        base_path = '../'
-        split_path = '/splits/phy12_split' + str(split_idx+1) + '.npy'
+        base_path = ''
+        split_path = '/kaggle/input/vitst-data/phy12_split' + str(split_idx+1) + '.npy'
         idx_train, idx_val, idx_test = np.load(base_path + split_path, allow_pickle=True)
         # extract train/val/test examples
         Ptrain = Pdict_list[idx_train]
