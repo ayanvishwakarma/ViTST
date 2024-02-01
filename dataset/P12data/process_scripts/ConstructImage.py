@@ -463,7 +463,7 @@ if __name__ == "__main__":
         outlier=None,
         interpolation=True,
         order=True,
-        grid_layout=(6,6),
+        grid_layout=(6,7),
         image_size=None
         )
 
