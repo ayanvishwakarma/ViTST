@@ -9,7 +9,7 @@ import os
 """
 Dataset configurations 
 """
-max_tmins = 48*60 # 48 hours
+max_tmins = 48 # 48 hours
 
 param_detailed_description = {
     "ALP": "Alkaline phosphatase (IU/L)",
@@ -236,6 +236,8 @@ def draw_image(pid, split_idx, ts_orders, ts_values, ts_times, ts_params, ts_sca
         plt.yticks([])
 
         drawed_params.append(param)
+
+        break
 
     plt.subplots_adjust(top=1, bottom=0, right=1, left=0, hspace=0, wspace=0)
     plt.margins(0,0)
