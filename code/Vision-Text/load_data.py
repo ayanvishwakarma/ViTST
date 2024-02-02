@@ -67,7 +67,7 @@ def get_data_split(base_path, split_path, split_idx, dataset='P12', prefix='', u
         y = y.astype(np.float32)
 
     idx_train, idx_val, idx_test = np.load('/kaggle/input/vitst-data/phy12_split1.npy', allow_pickle=True)
-    idx_train, idx_val, idx_test = np.array([0]), np.array([0]), np.array([0])
+    idx_train, idx_val, idx_test = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]), np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]), np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20])
     # extract train/val/test examples
     Ptrain = Pdict_list[idx_train]
     Pval = Pdict_list[idx_val]
