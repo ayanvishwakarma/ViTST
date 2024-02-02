@@ -68,13 +68,13 @@ def get_data_split(base_path, split_path, split_idx, dataset='P12', prefix='', u
 
     idx_train, idx_val, idx_test = np.load('/kaggle/input/vitst-data/phy12_split1.npy', allow_pickle=True)
     # extract train/val/test examples
-    Ptrain = Pdict_list[idx_train[0]]
-    Pval = []#Pdict_list[idx_val]
-    Ptest = []#Pdict_list[idx_test]
+    Ptrain = Pdict_list[idx_train]
+    Pval = Pdict_list[idx_val]
+    Ptest = Pdict_list[idx_test]
     
-    ytrain = y[idx_train[0]]
-    yval = []#y[idx_val]
-    ytest = []#y[idx_test]  
+    ytrain = y[idx_train]
+    yval = y[idx_val]
+    ytest = y[idx_test]  
 
     # upsampling the training dataset
     if upsample:
@@ -91,8 +91,8 @@ def get_data_split(base_path, split_path, split_idx, dataset='P12', prefix='', u
         random.shuffle(idx_0)
         random.shuffle(idx_1)
         upsampled_train_idx = list(chain.from_iterable(zip(idx_0, idx_1)))
-        Ptrain = Ptrain[upsampled_train_idx[0]]
-        ytrain = ytrain[upsampled_train_idx[0]]
+        Ptrain = Ptrain[upsampled_train_idx]
+        ytrain = ytrain[upsampled_train_idx]
     
     # only remove part of params in val, test set
     train_dataset, train_datadict = load_image(Ptrain, ytrain, base_path, split_idx, prefix, 0.)
