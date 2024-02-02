@@ -237,8 +237,6 @@ def draw_image(pid, split_idx, ts_orders, ts_values, ts_times, ts_params, ts_sca
 
         drawed_params.append(param)
 
-        break
-
     plt.subplots_adjust(top=1, bottom=0, right=1, left=0, hspace=0, wspace=0)
     plt.margins(0,0)
     plt.savefig(img_path, pad_inches=0)
@@ -451,6 +449,7 @@ def construct_image(
                 "arr_outcome": arr_outcome
                 }
             ImageDict_list.append(ImageDict)
+            break
         
     print(len(ImageDict_list))
     np.save(f'../processed_data/ImageDict_list.npy', ImageDict_list)
