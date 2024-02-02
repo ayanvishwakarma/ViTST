@@ -91,8 +91,8 @@ def get_data_split(base_path, split_path, split_idx, dataset='P12', prefix='', u
         random.shuffle(idx_0)
         random.shuffle(idx_1)
         upsampled_train_idx = list(chain.from_iterable(zip(idx_0, idx_1)))
-        Ptrain = Ptrain[upsampled_train_idx]
-        ytrain = ytrain[upsampled_train_idx]
+        Ptrain = Ptrain[upsampled_train_idx[0]]
+        ytrain = ytrain[upsampled_train_idx[0]]
     
     # only remove part of params in val, test set
     train_dataset, train_datadict = load_image(Ptrain, ytrain, base_path, split_idx, prefix, 0.)
