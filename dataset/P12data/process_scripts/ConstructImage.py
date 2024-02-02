@@ -450,7 +450,7 @@ def construct_image(
                 }
             ImageDict_list.append(ImageDict)
 
-            if idx >= 20:
+            if idx >= 200:
                 break
         
     print(len(ImageDict_list))
