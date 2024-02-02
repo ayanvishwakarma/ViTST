@@ -67,6 +67,7 @@ def get_data_split(base_path, split_path, split_idx, dataset='P12', prefix='', u
         y = y.astype(np.float32)
 
     idx_train, idx_val, idx_test = np.load('/kaggle/input/vitst-data/phy12_split1.npy', allow_pickle=True)
+    idx_train, idx_val, idx_test = np.array([0]), np.array([0]), np.array([0])
     # extract train/val/test examples
     Ptrain = Pdict_list[idx_train]
     Pval = Pdict_list[idx_val]
@@ -129,7 +130,7 @@ if __name__ == "__main__":
         missing_ratios = [0]
     print('missing ratio list', missing_ratios)
 
-    n_splits = 5
+    n_splits = 1
     subset = False
     for k in range(n_splits):
         split_idx = k + 1
