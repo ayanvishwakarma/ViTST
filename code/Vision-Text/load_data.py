@@ -66,7 +66,7 @@ def get_data_split(base_path, split_path, split_idx, dataset='P12', prefix='', u
     elif task == "regression":
         y = y.astype(np.float32)
 
-    idx_train, idx_val, idx_test = np.load('/kaggle/input/vitst-data/'+ split_path, allow_pickle=True)
+    idx_train, idx_val, idx_test = np.load('/kaggle/input/vitst-data/phy12_split1.npy', allow_pickle=True)
     # extract train/val/test examples
     Ptrain = Pdict_list[idx_train]
     Pval = Pdict_list[idx_val]
