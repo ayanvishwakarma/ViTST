@@ -449,7 +449,6 @@ def construct_image(
                 "arr_outcome": arr_outcome
                 }
             ImageDict_list.append(ImageDict)
-            break
         
     print(len(ImageDict_list))
     np.save(f'../processed_data/ImageDict_list.npy', ImageDict_list)
