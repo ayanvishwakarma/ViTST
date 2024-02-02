@@ -38,7 +38,7 @@ def get_data_split(base_path, split_path, split_idx, dataset='P12', prefix='', u
     # load data
     if dataset == 'P12':
         Pdict_list = np.load(base_path + f'/processed_data/ImageDict_list.npy', allow_pickle=True)
-        arr_outcomes = np.load(base_path + '/processed_data/arr_outcomes.npy', allow_pickle=True)
+        arr_outcomes = np.load( '/kaggle/input/vitst-data/processed_data_P12/processed_data/arr_outcomes.npy', allow_pickle=True)
         task = "classification"
         num_labels = 2
     elif dataset == 'P19':
@@ -66,7 +66,7 @@ def get_data_split(base_path, split_path, split_idx, dataset='P12', prefix='', u
     elif task == "regression":
         y = y.astype(np.float32)
 
-    idx_train, idx_val, idx_test = np.load(base_path + split_path, allow_pickle=True)
+    idx_train, idx_val, idx_test = np.load('/kaggle/input/vitst-data/'+ split_path, allow_pickle=True)
     # extract train/val/test examples
     Ptrain = Pdict_list[idx_train]
     Pval = Pdict_list[idx_val]
